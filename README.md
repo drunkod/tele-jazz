@@ -28,8 +28,11 @@ npm install
 This project contains the following scripts:
 
 - `dev`. Runs the application in development mode.
+- `dev:https`. Runs the application in development mode using locally created valid
+  SSL-certificates.
 - `build`. Builds the application for production.
-- `lint`. Runs [eslint](https://eslint.org/) to ensure the code quality meets the required standards.
+- `lint`. Runs [eslint](https://eslint.org/) to ensure the code quality meets the required
+  standards.
 - `lint:fix`. Runs [eslint](https://eslint.org/) and fixes auto-fixable issues.
 - `type-check`. Runs vue-tsc to check types.
 - `deploy`. Deploys the application to GitHub Pages.
@@ -57,8 +60,14 @@ process.
 To run the application in the development mode, use the `dev` script:
 
 ```bash
-npm run dev
+npm run dev:https
 ```
+
+> [!NOTE]
+> As long as we use [vite-plugin-mkcert](https://www.npmjs.com/package/vite-plugin-mkcert),
+> launching the dev mode for the first time, you may see sudo password request.
+> The plugin requires it to properly configure SSL-certificates. To disable the plugin, use
+> the `npm run dev` command.
 
 After this, you will see a similar message in your terminal:
 
